@@ -6,8 +6,9 @@ A tiny macOS desktop widget that shows how much time is left in the day, week, m
 </p>
 
 - Sits below your windows like a desktop widget
-- Drag to reposition anywhere, resize horizontally
-- Right-click to configure size, toggle always-on-top, or quit
+- Drag to reposition anywhere, resize horizontally from the corner
+- Right-click to toggle always-on-top, reset position, or quit
+- Only one instance runs at a time
 - No dock icon, ~200KB binary, zero dependencies
 - Progress bars shift cyan → red as time drains
 
@@ -41,7 +42,6 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 
 ## Right-click menu
 
-- **Size** → Compact / Normal / Wide
 - **Always on Top** — toggle floating above all windows
 - **Reset Position** — snap back to bottom-right corner
 - **Quit notime**
