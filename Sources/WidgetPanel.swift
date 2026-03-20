@@ -1,14 +1,10 @@
 import Cocoa
 import SwiftUI
 
-// MARK: - Panel (NSPanel doesn't steal focus, handles cross-screen better than NSWindow)
-
 final class WidgetPanel: NSPanel {
     override var canBecomeKey: Bool { true }
     override var canBecomeMain: Bool { false }
 }
-
-// MARK: - Resize Handle (horizontal only)
 
 final class ResizeHandleNSView: NSView {
     private var dragStart: NSPoint = .zero
@@ -32,7 +28,6 @@ final class ResizeHandleNSView: NSView {
         var w = startFrame.width + dx
         w = min(max(w, window.minSize.width), window.maxSize.width)
 
-        // Horizontal only — keep origin and height unchanged
         window.setFrame(NSRect(
             x: startFrame.origin.x,
             y: startFrame.origin.y,
@@ -52,8 +47,6 @@ final class ResizeHandleNSView: NSView {
         ctx.strokePath()
     }
 }
-
-// MARK: - SwiftUI Wrapper
 
 struct ResizeHandle: NSViewRepresentable {
     func makeNSView(context: Context) -> ResizeHandleNSView {

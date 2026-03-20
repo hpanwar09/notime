@@ -3,8 +3,6 @@ import Foundation
 struct TimeCalculator {
     private let cal = Calendar.current
 
-    // MARK: - Day
-
     func dayProgress(_ now: Date) -> Double {
         let start = cal.startOfDay(for: now)
         let end = cal.date(byAdding: .day, value: 1, to: start)!
@@ -15,8 +13,6 @@ struct TimeCalculator {
         let end = cal.date(byAdding: .day, value: 1, to: cal.startOfDay(for: now))!
         return format(end.timeIntervalSince(now))
     }
-
-    // MARK: - Week
 
     func weekProgress(_ now: Date) -> Double {
         let start = cal.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: now).date!
@@ -30,8 +26,6 @@ struct TimeCalculator {
         return format(end.timeIntervalSince(now))
     }
 
-    // MARK: - Month
-
     func monthProgress(_ now: Date) -> Double {
         let start = cal.date(from: cal.dateComponents([.year, .month], from: now))!
         let end = cal.date(byAdding: .month, value: 1, to: start)!
@@ -44,8 +38,6 @@ struct TimeCalculator {
         return format(end.timeIntervalSince(now))
     }
 
-    // MARK: - Year
-
     func yearProgress(_ now: Date) -> Double {
         let start = cal.date(from: cal.dateComponents([.year], from: now))!
         let end = cal.date(byAdding: .year, value: 1, to: start)!
@@ -57,8 +49,6 @@ struct TimeCalculator {
         let end = cal.date(byAdding: .year, value: 1, to: start)!
         return format(end.timeIntervalSince(now))
     }
-
-    // MARK: - Helpers
 
     private func elapsed(start: Date, end: Date, now: Date) -> Double {
         let total = end.timeIntervalSince(start)
