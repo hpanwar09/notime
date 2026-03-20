@@ -13,7 +13,8 @@ echo "  Downloading..."
 curl -sL "$ZIP_URL" -o "$TMP_DIR/$APP_NAME.zip"
 
 echo "  Extracting..."
-unzip -q "$TMP_DIR/$APP_NAME.zip" -d "$TMP_DIR"
+mkdir -p "$TMP_DIR/$APP_NAME.app"
+unzip -q "$TMP_DIR/$APP_NAME.zip" -d "$TMP_DIR/$APP_NAME.app"
 
 echo "  Moving to /Applications..."
 rm -rf "$APP_PATH"
