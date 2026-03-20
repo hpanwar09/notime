@@ -63,6 +63,10 @@ cd notime
 open notime.app
 ```
 
+<p align="center">
+  <img src="screenshot.jpg" width="600" />
+</p>
+
 ## License
 
 MIT
