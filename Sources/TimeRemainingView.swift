@@ -88,6 +88,9 @@ struct TimeRemainingView: View {
         Button("Reset Position") {
             NotificationCenter.default.post(name: .init("notime.resetFrame"), object: nil)
         }
+        Button("Reset Size") {
+            NotificationCenter.default.post(name: .init("notime.resetSize"), object: nil)
+        }
         Divider()
         Button("Quit notime") { NSApplication.shared.terminate(nil) }
     }

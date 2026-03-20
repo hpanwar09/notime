@@ -40,6 +40,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         nc.addObserver(forName: .init("notime.resetFrame"), object: nil, queue: .main) { [weak self] _ in
             self?.resetFrame()
         }
+        nc.addObserver(forName: .init("notime.resetSize"), object: nil, queue: .main) { [weak self] _ in
+            self?.resetSize()
+        }
         nc.addObserver(forName: .init("notime.setWidth"), object: nil, queue: .main) { [weak self] note in
             guard let self = self, let w = note.object as? CGFloat else { return }
             let origin = self.window.frame.origin
@@ -65,7 +68,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func resetFrame() {
-        window.setFrame(NSRect(x: 0, y: 0, width: 320, height: fixedHeight), display: true)
         positionBottomRight()
+    }
+
+    private func resetSize() {
+        let origin = window.frame.origin
+        window.setFrame(NSRect(x: origin.x, y: origin.y, width: 320, height: fixedHeight), display: true)
     }
 }
