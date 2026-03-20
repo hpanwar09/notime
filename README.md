@@ -1,7 +1,7 @@
 # notime
 
 <p align="center">
-  <img src="time-is-running-out.webp" width="300" />
+  <img src="time-is-running-out.webp" width="420" />
 </p>
 
 
