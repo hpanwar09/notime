@@ -1,11 +1,9 @@
 # notime
+A tiny macOS desktop widget that shows how much time is left in the day, week, month, and year.
 
 <p align="center">
   <img src="time-is-running-out.png" width="600" />
 </p>
-
-
-A tiny macOS desktop widget that shows how much time is left in the day, week, month, and year.
 
 - Sits below your windows like a desktop widget
 - Drag to reposition anywhere, resize horizontally
