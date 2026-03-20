@@ -38,20 +38,21 @@ final class ResizeHandleNSView: NSView {
 
     override func draw(_ dirtyRect: NSRect) {
         guard let ctx = NSGraphicsContext.current?.cgContext else { return }
-        ctx.setStrokeColor(NSColor.white.withAlphaComponent(0.15).cgColor)
-        ctx.setLineWidth(1)
-        for i in stride(from: 3 as CGFloat, through: 11, by: 4) {
-            ctx.move(to: CGPoint(x: bounds.maxX, y: bounds.maxY - i))
-            ctx.addLine(to: CGPoint(x: bounds.maxX - i, y: bounds.maxY))
+        ctx.setStrokeColor(NSColor.white.withAlphaComponent(0.4).cgColor)
+        ctx.setLineWidth(1.5)
+        for i in stride(from: 4 as CGFloat, through: 12, by: 4) {
+            ctx.move(to: CGPoint(x: bounds.maxX, y: bounds.minY + i))
+            ctx.addLine(to: CGPoint(x: bounds.maxX - i, y: bounds.minY))
         }
         ctx.strokePath()
     }
+
 }
 
 struct ResizeHandle: NSViewRepresentable {
     func makeNSView(context: Context) -> ResizeHandleNSView {
         let v = ResizeHandleNSView()
-        v.setFrameSize(NSSize(width: 20, height: 20))
+        v.setFrameSize(NSSize(width: 16, height: 16))
         return v
     }
     func updateNSView(_ nsView: ResizeHandleNSView, context: Context) {}

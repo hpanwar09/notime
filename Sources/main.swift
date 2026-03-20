@@ -12,6 +12,10 @@ if args.contains("--help") || args.contains("-h") {
     exit(0)
 }
 
+let running = NSRunningApplication.runningApplications(withBundleIdentifier: "com.notime.app")
+if running.count > 1 { exit(0) }
+
+
 let app = NSApplication.shared
 let delegate = AppDelegate()
 app.delegate = delegate

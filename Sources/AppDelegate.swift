@@ -3,7 +3,7 @@ import SwiftUI
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var window: WidgetPanel!
-    private let fixedHeight: CGFloat = 260
+    private let fixedHeight: CGFloat = 300
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         let hosting = NSHostingView(rootView: TimeRemainingView())

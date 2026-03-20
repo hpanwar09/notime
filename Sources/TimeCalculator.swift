@@ -3,6 +3,18 @@ import Foundation
 struct TimeCalculator {
     private let cal = Calendar.current
 
+    func hourProgress(_ now: Date) -> Double {
+        let start = cal.date(from: cal.dateComponents([.year, .month, .day, .hour], from: now))!
+        let end = cal.date(byAdding: .hour, value: 1, to: start)!
+        return elapsed(start: start, end: end, now: now)
+    }
+
+    func hourRemaining(_ now: Date) -> String {
+        let start = cal.date(from: cal.dateComponents([.year, .month, .day, .hour], from: now))!
+        let end = cal.date(byAdding: .hour, value: 1, to: start)!
+        return formatShort(end.timeIntervalSince(now))
+    }
+
     func dayProgress(_ now: Date) -> Double {
         let start = cal.startOfDay(for: now)
         let end = cal.date(byAdding: .day, value: 1, to: start)!
@@ -66,5 +78,12 @@ struct TimeCalculator {
         if d > 30 { return "\(d)d" }
         if d > 0  { return "\(d)d \(h)h" }
         return "\(h)h \(m)m \(s)s"
+    }
+
+    private func formatShort(_ interval: TimeInterval) -> String {
+        let secs = Int(max(interval, 0))
+        let m = secs / 60
+        let s = secs % 60
+        return "\(m)m \(s)s"
     }
 }
